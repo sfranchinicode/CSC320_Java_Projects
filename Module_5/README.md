@@ -1,7 +1,7 @@
 # Module 5: Monthly Temperature Tracker
 
 ## Program Description
-This Java program stores and manages avaerage monthly temperatures for an entire year. It uses two arrays to store the months and their corresponding temperature values.
+This Java program stores and manages average monthly temperatures for an entire year. It uses two arrays to store the months and their corresponding temperature values.
 
 The program allows users to input a specific month to view its temperature. If the user enters "year", the program displays all monthly temperatures, the yearly average and identifies the highest and lowest temperatures. 
 
