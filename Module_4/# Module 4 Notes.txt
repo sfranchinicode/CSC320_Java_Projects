@@ -1,0 +1,27 @@
+# Module 4 Notes:
+
+## Objective:
+- Must use a while loop
+- We are asking the user for a total of 5 floating points via user input
+- Avoid an endless loop
+- Ask user for values then print total, average, maximum, minimum, interest on total at 20%
+
+### Notes:
+- How do we do a floating point number? 
+-- float .nextfloat() for floats dont forget to do .printlnf( and add in the %.2f%n). Can also do Double!!!
+- Will need a way to track user inputs
+-- Value1 --> Value5 (we are using a while loop so try to avoid doing this and just stick with one value variable)
+- How will you structure the while loop to avoid going over 5 inputs? 
+-- While count < 5
+- What variables are needed? 
+-- Total---------> set to 0 then inputValue + total
+-- Average ------> Total / count ----> can happen after the loop
+-- Maximum -------> inputValue first then inputValue > max STILL NEED TO INITIALIZE
+-- Minimum -------> inputValue first then inputValue < min STILL NEED TO INITIALIZE
+-- Interest ------> total * 0.20 ---> can happen after the loop
+-- inputValue-----> userInput
+-- count ---------> set to 0 then ++ or +1 (both work)
+- You're asked for Max and Min so you'll need a way update them as numbers come in. 
+-- What do you set min and max to prior to loop start? 
+------> set equal to the inputValue
+
