@@ -1,0 +1,13 @@
+Module 1 Pseudocode
+
+START
+Set restaurant name to “Old Chicago”
+Set street address to “11460 NE Evergreen Pkwy”
+Set city, state, zip code to “Hillsboro, OR, 97006”
+
+//Print each on a new line for clearer readability
+PRINT restaurant name
+PRINT street address
+PRINT city, state, and zip code
+
+END

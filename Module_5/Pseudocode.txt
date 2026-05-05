@@ -1,0 +1,70 @@
+Module 5 Pseudocode
+
+BEGIN
+
+// Create 2 separate arrays to hold the values
+CREATE array months = [
+    "January", "February", "March", "April", "May", "June", "July", 
+    "August", "September", "October", "November", "December"
+    ]
+CREATE array temperatures = [
+    29, 33, 44, 67, 73, 80, 99, 102, 75, 50, 43, 37
+    ]
+
+// Pre-Calculations for yearly stats
+SET sum = 0
+SET max = temperatures[0]
+SET min = temperatures[0]
+
+FOR each temperature in temperatures DO
+    ADD temperature to sum
+
+    IF temperature > max THEN
+        SET max = temperature
+    END IF
+
+    IF temperature < min THEN
+        SET min = temperature
+    END IF
+
+
+// Get a continual prompt with case handling till user exits
+WHILE true DO
+
+    PROMPT user: "Enter a month or 'year': "
+    READ input into variable input
+    CONVERT input to Ignore Case
+
+    //Determine whether the user wants yearly stats or specific month data
+    IF input equals "year" THEN
+
+        //Display all monthly temperatures
+        FOR i from 0 to 11 DO
+            DISPLAY months[i] + ": " + max
+        END FOR
+
+        //Display calculated yearly stats
+        DISPLAY "Yearly Average: " + average
+        DISPLAY "Highest Temperature" + ": " + max
+        DISPLAY "Lowest Temperature" + ": " + min
+
+    ELSE
+
+        //Search for the requested month in the array
+        SET found = false
+
+        FOR i from 0 to 11 DO
+            IF months[i] equals input THEN
+                DISPLAY months[i] + ": " + temperatures[i]
+                SET found = true 
+            END IF
+        END FOR
+
+        //Handle invalid input if no match is found
+        IF found equals false THEN
+            DISPLAY "Invalid month entered."
+        END IF
+    END IF
+END WHILE
+
+END

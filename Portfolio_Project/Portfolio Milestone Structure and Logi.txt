@@ -1,0 +1,7 @@
+Portfolio Milestone Structure and Logic
+
+Class Fields
+
+private String make
+private String model
+private String color

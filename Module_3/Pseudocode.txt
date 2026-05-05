@@ -1,0 +1,44 @@
+Module 3 Pseudocode
+
+BEGIN
+
+    //Prompt user for coupon amount
+    PRINT "Enter the coupon amount as a decimal (Example: 0.10)"
+    GET user input
+    READ coupon
+
+    //Validate coupon; if invalid, set to 10% (0.10)
+    IF coupon <= 0 OR coupon >= 1 THEN
+        SET coupon = 0.10
+    ENDIF
+
+    //Prompt user for 1-4 weeks of grocery bills
+    PRINT "Enter grocery bill for week 1"
+    GET user input
+    READ week1
+
+    PRINT "Enter grocery bill for week 2"
+    GET user input
+    READ week2
+
+    PRINT "Enter grocery bill for week 3" 
+    GET user input
+    READ week3
+
+    PRINT "Enter grocery bill for week 4"
+    GET user input
+    READ week4
+
+    //Calculate monthly total and weekly averages
+    SET monthlyTotal = week1 + week2 + week3 + week4 
+    SET weeklyAverage = monthlyTotal / 4
+    SET monthlyTotalWithCoupon = monthlyTotal * (1 - coupon)
+    SET weeklyAverageWithCoupon = monthlyTotalWithCoupon / 4
+
+    //Display results
+    PRINT "Monthly total without coupon: $" + monthlyTotal
+    PRINT "Weekly average without coupon: $" + weeklyAverage
+    PRINT "Monthly total with coupon: $" +     monthlyTotalWithCoupon
+    PRINT "Weekly total with coupon: $" + weeklyAverageWithCoupon
+
+END
