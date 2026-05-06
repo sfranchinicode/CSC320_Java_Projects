@@ -1,0 +1,178 @@
+Portfolio Project Pseudocode
+
+// Automobile Class Definition
+ClASS Automobile
+
+// Fields (Vehicle Attributes)
+private String make
+private String model
+private String color
+private int year
+private int mileage
+
+// Default Constructor
+// Initialize vehicle with empty default values
+METHOD Automobile()
+    TRY    
+        // Initialize variables
+        SET this.make = ""
+        SET this.model = ""
+        SET this.color = ""
+        SET this.year = 0
+        SET this.mileage = 0
+    CATCH (Exception e)
+        OUTPUT "Error in default constructor"
+END METHOD
+
+// Parameterized Constructor
+// Creates a vehicle with provided values
+METHOD Automobile(make, model, color, year, mileage)
+    TRY
+        SET this.make = make
+        SET this.model = model
+        SET this.color = color
+        SET this.year = year
+        SET this.mileage = mileage
+    CATCH (Exception e) 
+        OUTPUT "Error in parameterized constructor"
+END METHOD
+
+    // Add New Vehicle Method
+    // Assigns new values to the vehicle
+METHOD addVehicle(make, model, color, year, mileage)
+    TRY
+        // Assign input to class field
+        SET this.make = make
+        SET this.model = model
+        SET this.color = color
+        SET this.year = year
+        SET this.mileage = mileage
+        RETURN "Vehicle added successfully."         
+    CATCH (Exception e)
+        RETURN "Error adding vehicle"
+END METHOD
+
+// List Vehicle Info Method
+// Returns vehicle data as an array of strings
+METHOD listVehicle()
+    TRY
+        // Create array of current vehicle data
+        CREATE STRING ARRAY vehicleInfo
+        SET vehicleInfo[0] = make
+        SET vehicleInfo[1] = model
+        SET vehicleInfo[2] = color
+        SET vehicleInfo[3] = year as STRING
+        SET vehicleInfo[4] = mileage as STRING
+        RETURN vehicleInfo
+    CATCH (Exception e)
+        RETURN empty array
+
+        
+// Remove Vehicle Method
+// Resets all fields to default values
+METHOD removeVehicle()
+    TRY
+        // Reset vehicle data to default
+        SET this.make = ""
+        SET this.model = ""
+        SET this.color = ""
+        SET this.year = 0
+        SET this.mileage = 0
+        RETURN "Vehicle removed successfully."
+    CATCH (Exception e)
+        RETURN "Error removing vehicle"
+END METHOD
+
+// Update Vehicle Method
+// Updates existing vehicle details
+METHOD updateVehicle(String make, String model, String color, int year, int mileage)
+    TRY
+        SET this.make = make
+        SET this.model = model
+        SET this.color = color
+        SET this.year = year
+        SET this.mileage = mileage
+        RETURN "Vehicle updated successfully." 
+    CATCH (Exception e)
+        RETURN "Error updating vehicle"
+END METHOD
+
+// Write to a file Method
+// Saves vehicle information line-by-line to a file 
+METHOD writeToFile(filePath)
+    TRY
+        OPEN file at filePath
+        CALL listVehicle() AND STORE IN array
+
+        FOR EACH item IN array
+            WRITE item TO file
+        CLOSE file
+        RETURN "File written successfully"
+
+    CATCH IOException e 
+        RETURN "Error writing file"
+
+END METHOD
+
+END Class
+
+// Main Program Flow
+// Demonstrates class usage
+METHOD Main
+    TRY 
+        CREATE Scanner object
+
+        // Create vehicle with initial values 
+        CREATE Automobile object USING parameterized constructor 
+
+        OUTPUT "Initial Vehicle" 
+        CALL listVehicle()
+        LOOP through array
+            PRINT each value
+
+        CALL removeVehicle()
+        PRINT result
+
+        CALL addVehicle()
+        PRINT result
+
+        OUTPUT "After Adding Vehicle"
+        CALL listVehicle()
+        LOOP through array
+            PRINT each value
+
+        CALL updateVehicle() 
+        PRINT result
+
+        OUTPUT "After Update" 
+        Call listVehicle()
+        LOOP through array
+            PRINT each value
+        
+        // Ask user about file output 
+        PROMPT user: 
+            "Do you want to print to file? (Y/N)"
+
+        READ user input
+
+        IF input == "Y"
+            CALL writeToFile("C:\Temp\Autos.txt)
+            PRINT result
+        ELSE
+            PRINT "File will not be printed"
+
+        CLOSE scanner
+
+    CATCH Exception e 
+        PRINT "Error in main program"
+
+END METHOD
+
+// Print Vehicle Method 
+// Avoid repeating loops in main 
+METHOD printVehicle(data) 
+    FOR EACH item IN data
+        PRINT item
+END METHOD
+
+END Class
